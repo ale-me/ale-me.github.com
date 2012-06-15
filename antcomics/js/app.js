@@ -9,12 +9,10 @@
     }
   };
 
-  scrollToLink = function($target, text) {
+  scrollToLink = function($target, text, cssClass) {
     var link, pos, url;
-    if (!$target) {
-      return $("<a class=\"btn btn-inverse disabled\">" + text + "</a>");
-    }
-    link = $("<a class=\"btn btn-inverse\">" + text + "</a>");
+    if (!$target) return;
+    link = $("<a class=\"" + cssClass + "\">" + text + "</a>");
     pos = $target.position().top;
     url = $target.attr("data-permalink");
     link.click(function() {
@@ -30,7 +28,7 @@
   comicBottoms = {};
 
   addNavigation = function($previous, $current, $next) {
-    var bottom, card, info, nav, permalink;
+    var bottom, card, nav, permalink;
     if (!($current != null)) return;
     if (!($previous != null) && !($next != null)) {
       $(".js-info").click(function() {
@@ -38,18 +36,13 @@
       }).removeClass("disabled");
       return;
     }
-    nav = $('<div class="nav btn-group"></div>');
+    nav = $('<div/>');
     permalink = $current.attr("data-permalink");
     bottom = $current.position().top + $current.height();
     comicBottoms[bottom] = permalink;
-    nav.append(scrollToLink($previous, "Prev"));
-    info = $('<a class="btn btn-inverse">Info</a>');
+    nav.append(scrollToLink($previous, "Prev", 'prev'));
     card = $current.find(".card");
-    info.click(function() {
-      return card.toggleClass("flipped");
-    });
-    nav.append(info);
-    nav.append(scrollToLink($next, "Next"));
+    nav.append(scrollToLink($next, "Next", 'next'));
     return $current.children(".entry").append(nav);
   };
 

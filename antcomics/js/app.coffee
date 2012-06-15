@@ -4,11 +4,11 @@ updateAddress = (path) ->
   if window.history and window.history.pushState
     history.pushState stateObject, "", path
 
-scrollToLink = ($target, text) ->
+scrollToLink = ($target, text, cssClass) ->
   if not $target
-    return $("<a class=\"btn btn-inverse disabled\">" + text + "</a>")
+    return
 
-  link = $("<a class=\"btn btn-inverse\">#{text}</a>")
+  link = $("<a class=\"#{cssClass}\">#{text}</a>")
   pos = $target.position().top
   url = $target.attr("data-permalink")
 
@@ -36,21 +36,21 @@ addNavigation = ($previous, $current, $next) ->
     return
 
 
-  nav = $('<div class="nav btn-group"></div>')
+  nav = $('<div/>')
   permalink = $current.attr("data-permalink")
 
   bottom = $current.position().top + $current.height()
 
   comicBottoms[bottom] = permalink
 
-  nav.append scrollToLink($previous, "Prev")
-  info = $('<a class="btn btn-inverse">Info</a>')
+  nav.append scrollToLink($previous, "Prev", 'prev')
+  #info = $('<a class="btn btn-inverse">Info</a>')
   card = $current.find(".card")
-  info.click ->
-    card.toggleClass "flipped"
+  #info.click ->
+    #card.toggleClass "flipped"
 
-  nav.append info
-  nav.append scrollToLink($next, "Next")
+  #nav.append info
+  nav.append scrollToLink($next, "Next", 'next')
   $current.children(".entry").append nav
 
 prev = null
