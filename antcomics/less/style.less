@@ -1,0 +1,100 @@
+/*
+ * SKELETOR NEEDS SOME STYLING
+ */
+
+@import "bootstrap/bootstrap.less";
+
+body {
+    text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.container-fluid,
+.posts,
+.post-row,
+.post-row > div,
+.post {
+  height: 100%;
+}
+
+.post {
+  display: table;
+  width: 100%;
+}
+
+.entry {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+.nav {
+  display: inline-block;
+}
+
+// http://desandro.github.com/3dtransforms/docs/card-flip.html
+.post-container {
+  -webkit-perspective: 1200px;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  -webkit-transition: all 1s;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+}
+
+.card.flipped {
+  border: 1px solid #222;
+  -webkit-transform: rotateY(180deg);
+  .front {
+    opacity: 0.1;
+  }
+  .back {
+    opacity: 1;
+  }
+}
+
+.card {
+  figure {
+    -webkit-transition: opacity 800ms;
+  }
+
+  .front {
+    opacity: 1;
+  }
+  .back {
+    -webkit-transform: rotateY( 180deg );
+    /*-webkit-backface-visibility: hidden;*/
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0; /* this hurts my brain */
+    text-align: left;
+    padding: 10px; 
+    font-size: 16px;
+  }
+}
+.logo {
+  background: url(../img/ant-comics-logo-600.png);
+  width: 600px;
+  height: 132px;
+  margin: 0 auto;
+}
+
+.next, .prev {
+  display: inline-block;
+  width: 100px;
+  height: 75px;
+}
+.next {
+  background: url(../img/back-arrow.png);
+}
+.prev {
+  background: url(../img/next-arrow.png);
+}
