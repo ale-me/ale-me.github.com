@@ -43,14 +43,14 @@ addNavigation = ($previous, $current, $next) ->
 
   comicBottoms[bottom] = permalink
 
-  nav.append scrollToLink($previous, "Prev", 'prev')
+  nav.append scrollToLink($previous, "", 'prev')
   #info = $('<a class="btn btn-inverse">Info</a>')
   card = $current.find(".card")
   #info.click ->
     #card.toggleClass "flipped"
 
   #nav.append info
-  nav.append scrollToLink($next, "Next", 'next')
+  nav.append scrollToLink($next, "", 'next')
   $current.children(".entry").append nav
 
 prev = null

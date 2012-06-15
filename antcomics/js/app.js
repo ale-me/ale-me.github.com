@@ -40,9 +40,9 @@
     permalink = $current.attr("data-permalink");
     bottom = $current.position().top + $current.height();
     comicBottoms[bottom] = permalink;
-    nav.append(scrollToLink($previous, "Prev", 'prev'));
+    nav.append(scrollToLink($previous, "", 'prev'));
     card = $current.find(".card");
-    nav.append(scrollToLink($next, "Next", 'next'));
+    nav.append(scrollToLink($next, "", 'next'));
     return $current.children(".entry").append(nav);
   };
 
