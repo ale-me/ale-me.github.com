@@ -17,10 +17,9 @@
     url = $target.attr("data-permalink");
     link.click(function() {
       console.log("scrolling to " + pos);
-      $("html,body").animate({
+      return $("html,body").animate({
         scrollTop: pos
       }, 300);
-      return updateAddress(url);
     });
     return link;
   };
@@ -83,8 +82,6 @@
 
   scrollEvent = function() {
     if (!scrollInterrupted) {
-      console.log("scroll complete event");
-      console.log(updateURLByPosition());
       scrollStarted = false;
       return scrollInterrupted = false;
     } else {

@@ -19,7 +19,7 @@ scrollToLink = ($target, text, cssClass) ->
       scrollTop: pos
     , 300
 
-    updateAddress url
+    # updateAddress url
 
   link
 
@@ -83,8 +83,8 @@ scrollEventDelay = 150
 
 scrollEvent = ()->
   unless scrollInterrupted
-    console.log "scroll complete event"
-    console.log updateURLByPosition()
+    #console.log "scroll complete event"
+    #console.log updateURLByPosition()
     scrollStarted = false
     scrollInterrupted = false
   else
